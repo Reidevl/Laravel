@@ -11,9 +11,14 @@
 </head>
 
 <body>
-    {{-- Aqui abajo va el contenido --}}
+
     <x-layouts.navigation />
 
+    @if (session('status'))
+        <div>{{ session('status') }}</div>
+    @endif
+
+    {{-- Aqui abajo va el contenido --}}
     {{ $slot }}
 
 </body>
