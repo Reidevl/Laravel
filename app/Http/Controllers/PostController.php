@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
 use Illuminate\Http\Request;
 use App\Http\Requests\SavePostRequest;
+use App\Models\Post;
 
 class PostController extends Controller
 {
@@ -45,5 +45,12 @@ class PostController extends Controller
         $post->save();
 
         return to_route('posts.show', $post)->with('status','Post updated!');
+    }
+
+    public function destroy(Post $post){
+
+        $post->delete();
+
+        return to_route('posts.index')->with('status','Post deleted! T_T');
     }
 }

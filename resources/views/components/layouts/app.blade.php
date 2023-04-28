@@ -8,6 +8,8 @@
     <title>Aplicacion - {{ $title ?? '' }}</title>
     <meta name="description" content="{{ $metaDescription ?? 'Default meta description' }}" />
 
+    @vite(['resources/css/app.scss', 'resources/js/app.js'])
+
 </head>
 
 <body>
