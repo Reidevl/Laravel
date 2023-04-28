@@ -1,3 +1,2 @@
 import './bootstrap';
-
-console.log('Js loaded')
+import '../css/app.scss'
