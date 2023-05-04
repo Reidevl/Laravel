@@ -3,7 +3,7 @@
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisteredUserController;
-
+use App\Http\Controllers\AuthenticatedSessionController;
 
 Route::view('/', 'welcome')->name('home');
 Route::view('/contact', 'contact')->name('contact');
@@ -15,9 +15,10 @@ Route::resource('blog', PostController::class, [
 
 Route::view('/about', 'about')->name('about');
 
-Route::get('/login', function(){
-    return 'Login page';
-})->name('login');
+Route::view('/login', 'auth.login')->name('login');
+Route::post('/login', [AuthenticatedSessionController::class, 'store']);
+Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
+
 
 
 Route::view('/register', 'auth.register')->name('register');
